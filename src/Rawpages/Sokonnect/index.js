@@ -38,3 +38,5 @@ login_link.addEventListener("click", ()=>{
   wrapper1.classList.remove('change_to_register_form');
 }); 
 
+//this is for adding the map in the contact secction in the html file
+

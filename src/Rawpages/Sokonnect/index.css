@@ -393,6 +393,9 @@ main{
   border-radius: 50%;
   z-index: 4;
   box-shadow: 10px 10px 20px rgba(239, 109, 48, 0.7);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .grid_item:nth-child(4) .sokonnect_text{
   color: var(--brightb);
@@ -629,3 +632,85 @@ main{
 .product_page .prod_image img:hover{
   transform: scale(1.1);
 }
+
+/* styling for contact part */
+
+.contact_container{
+  display: flex;
+  flex-direction: column;
+}
+.contact_container h2{
+  position: relative;
+  top: 100px;
+  color: var(--brightb);
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+.contact_container h2 span{
+  color: white;
+}
+
+
+.contact_part{
+  position: relative;
+  top: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+ 
+.contact_part #map{
+  margin-top: 40px;
+  height: 600px;
+  width: 700px;
+  border-radius: 5px;
+
+
+}
+.contact_part .message{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+.contact_part .message label{
+  font-size: 2rem;
+  color: var(--brightb);
+  line-height: 57px;
+
+}
+.contact_part .message input{
+  width: 500px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.116);
+  color: white;
+}
+.contact_part .message #message_input{
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.116);
+  color: white;
+
+}
+
+.contact_part .message #submit{
+  padding: 5px;
+  margin-top: 25px;
+  font-size: 1.4rem;
+  width: 500px;
+  background: var(--mediumb);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.contact_part .message #submit:hover{
+ background: var(--brightb);
+}
+
