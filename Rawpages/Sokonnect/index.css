@@ -5,6 +5,7 @@
   box-sizing: border-box;
   outline: none;
   border: none;
+  list-style: none;
 }
 
 :root {
@@ -83,6 +84,10 @@ body {
   color: white;
   font-size: 1.4rem;
   margin-right: 20px;
+  cursor: pointer;
+}
+.header .icons .icon:hover{
+ color: var(--brightb);
 }
 .header .search_container {
   position: absolute;
@@ -124,6 +129,86 @@ body {
 #menu_icon{
   display: none;
 }
+#profile_icon{
+  display: inline;
+}
+/*styling for the cart_container*/
+
+.cart_container{
+  width: 700px;
+  height: 860px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  background: var(--dbb);
+  border-radius: 5px;
+  color: var(--brightb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: -5px 0px 10px hsl(25, 100%, 40%);
+  transform: scale(0);
+  transform-origin: right;
+  overflow: scroll;
+}
+
+.cart_container.show-cart{
+  transform: scale(1);
+}
+.cart_container .heading h2{
+  font-size: 2rem;
+  font-weight: 500px;
+  text-align: center;
+  margin: 15px;
+}
+
+.cart_container .cart-items ul li{
+  background:hsl(23, 63%, 20%);
+  color: white;
+  margin: 5px;
+  width: 600px;
+  height: 40px;
+  font-size: 1.3rem;
+  padding: 5px;
+  border-radius: 5px;
+
+}
+.cart_container .cart-items ul li.headline{
+  background: transparent;
+  color: var(--brightb);
+  margin-bottom: 5px;
+  height: 40px;
+}
+.cart_container .total{
+  background: transparent;
+  width: 400px;
+  height: 300px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+
+}
+.total p{
+  font-size: 1.3rem;
+  font-weight: 500px;
+  line-height: 30px;
+  
+}
+.total button{
+  color: white;
+  font-size: 1.5rem;
+  width: 300px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: var(--mediumb);
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+.total button:hover{
+  background-color:hsl(25, 100%, 50%);
+}
 
 /*styling for the main section */
 
@@ -137,6 +222,7 @@ main{
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   transform: scale(1);
@@ -153,8 +239,8 @@ main{
   transform: scale(0);
 }
 .wrapper1 {
-  height: 440px;
-  width: 400px;
+  height: 550px;
+  width: 500px;
   background: transparent;;
   backdrop-filter: blur(20px);
   border: 2px solid rgb(255, 255, 255, 0.5);
@@ -166,6 +252,10 @@ main{
   color: white;
   transition: height,width .5s;
 }
+#wrapper1{
+  height: 400px;
+  width: 440px;
+}
 .wrapper1.change_to_register_form {
   height: 550px;
   width: 450px;
@@ -173,11 +263,6 @@ main{
 
 .form_box {
   width: 90%;
-}
-.wrapper1.change_to_register_form .form_box.login {
-  transition: none;
-  transform: translateX(-450px);
-  display: none;
 }
 .remove {
   position: absolute;
@@ -291,14 +376,46 @@ main{
 
 .form_box.register {
   position: absolute;
-  transform: translateX(450px);
-  display: none;
+  
 }
-.wrapper1.change_to_register_form .form_box.register {
-  transition: none;
-  transform: translateX(0);
-  display: block;
+.wrapper .buyerseller{
+  margin-bottom: 10px;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  width: 500px;
+  text-align: center;
+  border-radius: 10px;
 }
+.wrapper .buyerseller p{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 2rem;
+}
+.wrapper .buyerseller button{
+  width: 100px;
+  background:hsl(23, 63%, 35%);
+  color: white;
+  padding: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+.wrapper .buyerseller button a{
+  color: white;
+}
+.wrapper .buyerseller button.show-border{
+  border: 1px solid white;
+}
+.wrapper .buyerseller button:hover{
+  background:hsl(23, 63%, 50%)
+}
+.wrapper .buyerseller button:active{
+  border: 1px solid white;
+}
+ 
+
 
 
 
@@ -539,6 +656,12 @@ main{
   color: whitesmoke;
 
 }
+.product_btns button:hover{
+  background:hsl(23, 63%, 50%)
+}
+.product_btns button:active{
+  background:hsl(23, 63%, 60%)
+}
 .most_popular{
   width: 100%;
   position: relative;
@@ -553,6 +676,7 @@ main{
   color: var(--brightb);
   margin: 3rem;
 }
+/* this is where the copyright-styling part begins */ 
 
 .copyright{
   width: 100%;
@@ -582,6 +706,9 @@ main{
 .socials div ul li a i{
   margin-right: 10px;
 }
+.copyright div ul li a:hover{
+  text-decoration: underline;
+}
 .copyrighttext{
   display: block;
   position: absolute;
@@ -596,10 +723,35 @@ main{
 
 /* Product page styling */
 
+.main_products .categories{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 100px;
+  justify-content: center;
+
+}
+.main_products .categories button{
+  font-size: 1.5rem;
+  margin: 20px ;
+  width: 150px;
+  border-radius: 45px;
+  padding: 5px;
+  color: white;
+  background: var(--brightb);
+  cursor: pointer;
+}
+.main_products .categories button:hover{
+  background:hsl(23, 63%, 45%);
+}
+.main_products .categories button:active{
+  background:hsl(23, 63%, 35%);
+}
 .grid_display{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 3px;
+  
   
 
 }
@@ -612,7 +764,7 @@ main{
   height: 500px;
   border-radius: 5px;
   position: relative;
-  top: 100px;
+  top: 110px;
   background:hsl(23, 63%, 35%);
 
 }
@@ -715,3 +867,307 @@ main{
  background: var(--brightb);
 }
 
+.about_main{
+  position: relative;
+  top: 160px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+
+}
+.part1{
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  height: 500px;
+  background: transparent;
+  padding: 15px;
+
+}
+.part1 .about_text{
+  color: var(--brightb);
+  width: 50%;
+}
+.about_text h1{
+  margin-top: 10px;
+}
+.about_text p{
+  margin-left: 10px;
+  margin-top: 40px;
+  font-size: 1.3rem;
+}
+.about_text h3{
+  font-size: 1.5rem;
+  color:hsla(23, 63%, 20%, 0.904);
+  padding: 5px;
+  margin: 5px;
+}
+
+.about_text a h2{
+  margin-left: 15px;
+  background:hsla(23, 63%, 20%, 0.212);
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+  color: var(--brightb);
+}
+.part1 .about_img{
+  width: 50%;
+  height: 450px;
+}
+.about_img img{
+  width: 95%;
+  height: 100%;
+  margin-left: 20px;
+}
+.part3 .about_text ol li, .part2 .about_text ol li{
+  margin-left: 10px;
+list-style-type: decimal;
+  
+}
+
+.part3 .about_text p, .part2 .about_text p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.part3 .about_text button, .part2 .about_text button {
+  width: 100px;
+  padding: 5px;
+  height: 30px;
+  background:hsl(23, 63%, 45%);
+  border-radius: 50px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.part3 .about_text button a, .part2 .about_text button a{
+  color: white;
+  font-size: 1.1rem;
+}
+.part3 .about_text button{
+  width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@media queries */
+
+@media (max-width:1000px){
+.header .logo .logo_image img{
+  width: 70px;
+}
+.header .logo .logo_name p{
+  font-size: 1.3rem;
+}
+.header .navigation .navs{
+  font-size: 1.4rem;
+  margin-right: 20px;
+}
+.header .search_container{
+  width: 80%;
+  height: 3rem;
+}
+.header .search_container input{
+  font-size: 1.2rem;
+
+}
+.header .search_container label{
+  font-size: 1.8rem;
+}
+.header .icons .icon{
+  margin-right: 10px;
+
+}
+.cart_container{
+  width: 50%;
+  height: 45rem;
+}
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 1300px;
+}
+.grid_item:nth-child(2) .mytext{
+  z-index: 100;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  width: 95%;
+}
+.grid_item:nth-child(6) .mytext{
+  z-index: 100;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  width: 95%;
+}
+ 
+.grid_arr{
+  grid-template-columns: repeat(3, 1fr);
+}
+.copyright .aboutus, .support, .socials{
+  margin:  170px 60px;
+}
+.contact_part{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+.contact_part #map{
+  width: 95%;
+}
+.contact_part .message{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.contact_part .message #message_input{
+  columns: 50;
+}
+.contact_part .message #submit{
+  width: 90%;
+  margin-left: 35px;
+}
+.grid_display{
+  grid-template-columns: repeat(3, 1fr);
+}
+}
+
+@media (max-width:550px){
+  .header .navigation{
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(141, 141, 141);
+    transform: scale(0);
+    transform-origin: right;
+  }
+.navigation.show-navigation{
+  transform: scale(1);
+}
+.header .navigation .navs{
+  color: white;
+  line-height: 60px;
+  margin-left: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+
+}
+.header .navigation .navs:hover{
+  background:hsl(0, 3%, 94%);
+  border-radius: 5px;
+}
+.header .navigation .navs:hover::after{
+  transform: scaleX(0);
+}
+.header .cart_container{
+  width: 100%;
+}
+.header .search_container{
+  width: 90%;
+  height: 3rem;
+}
+.header .search_container input{
+  font-size: 1.1rem;
+
+}
+.header .search_container label{
+  font-size: 1.4rem;
+}
+#menu_icon{
+  display: inline;
+
+}
+#profile_icon{
+  display: none;
+}
+
+
+.grid_item:nth-child(2) .mytext{
+  width: 450px;
+
+}
+.grid_item:nth-child(2) .mytext h2{
+  font-size: 1.5rem;
+}
+.grid_item:nth-child(6) .mytext{
+  width: 450px; 
+  backdrop-filter: blur(50px);
+
+}
+.grid_item:nth-child(6) .mytext h3{
+  font-size: 1.5rem;
+}
+.grid_arr{
+  grid-template-columns: repeat(1, 1fr);
+}
+.contact_part{
+  align-items: flex-start;
+}
+.contact_part #map{
+  width: 95%;
+  margin: auto;
+}
+.contact_part .message #submit{
+  width: 450px;
+  margin-left: 15px;
+}
+.copyright{
+  margin: 10px;
+}
+.copyright .aboutus, .support, .socials{
+  margin:  170px 10px;
+}
+.copyrighttext{
+  margin-right: 5px;
+}
+.copyrighttxt, .copyrighttxt a{
+  font-size: .9rem;
+}
+.grid_display{
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.about_main .part1{
+  flex-direction: column;
+  width: 900px;
+  height: 700px;
+  align-items: center;
+  justify-content: center;  
+  margin-bottom: 120px;
+}
+ 
+.part2 .about_text{
+  margin-top: 40px;
+}
+.about_img img{
+  margin-top: 20px;
+}
+}

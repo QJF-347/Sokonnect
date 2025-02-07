@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="index.css" />
     <script
       src="https://kit.fontawesome.com/4d99246f7d.js"
@@ -11,8 +11,6 @@
     ></script>
   </head>
   <body>
-    <!--Header starts here-->
-
     <header class="header">
       <div class="logo">
         <div class="logo_image">
@@ -46,8 +44,8 @@
           ><i class="fa-solid fa-bars"></i
         ></a>
         <a href="#" class="icon" id="profile_icon"
-        ><i class="fa-solid fa-user"></i
-      ></a>
+          ><i class="fa-solid fa-user"></i
+        ></a>
       </div>
       <!--this is the search bar-->
       <div class="search_container" id="search_container">
@@ -72,65 +70,19 @@
           </pre>
         </div>
         <pre>
-      <div class="total">
-        <p>Items    : <span id="item_cost">$0.00</span></p>
-        <p>Tax      : <span id="tax">$0.00</span></p>
-        <p>Shipping : <span id="shipping_cost">$0.00</span></p><br>
-        <p>Total    : <span id="total_cost">$0.00</span></p>
-        <button id="checkout">Place Order</button>
-      </div>
-      </pre>
+        <div class="total">
+          <p>Items    : <span id="item_cost">$0.00</span></p>
+          <p>Tax      : <span id="tax">$0.00</span></p>
+          <p>Shipping : <span id="shipping_cost">$0.00</span></p><br>
+          <p>Total    : <span id="total_cost">$0.00</span></p>
+          <button id="checkout">Place Order</button>
+        </div>
+        </pre>
       </div>
     </header>
 
-    <!--Header ends here-->
+    <main></main>
 
-    <!--The login/register form starts here-->
-
-    <div class="wrapper" id="wrapper">
-      <div class="wrapper1" id="wrapper1">
-        <a href="home.html"
-          ><div class="remove" id="remove2">
-            <i class="fa-solid fa-xmark"></i></div
-        ></a>
-        <div class="form_box login">
-          <h2>LogIn</h2>
-          <hr />
-          <form action="#">
-            <div class="input_box">
-              <span><i class="fa-solid fa-envelope"></i></span>
-              <input type="email" id="email" name="email" required />
-              <label for="email">Email</label>
-            </div>
-            <div class="input_box">
-              <span><i class="fa-solid fa-lock"></i></span>
-              <input type="password" id="password" name="password" required />
-              <label for="password">Password</label>
-            </div>
-            <div class="remember_forgot">
-              <div class="remember">
-                <input type="checkbox" id="remember" name="remember" />
-                <label for="remember">Remember me</label>
-              </div>
-              <div class="forgot">
-                <a href="#">Forgot password?</a>
-              </div>
-            </div>
-            <div class="login_btn">
-              <button type="submit">Login</button>
-            </div>
-            <div class="register-login">
-              <p>
-                Don't have an account?
-                <a href="signup.html" id="register_link">Register!</a>
-              </p>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!--The login/register form ends here-->
     <script src="index.js"></script>
   </body>
 </html>
