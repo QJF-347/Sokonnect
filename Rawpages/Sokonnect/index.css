@@ -731,6 +731,9 @@ main{
   justify-content: center;
 
 }
+.main_products .categories ._550px.hide-div{
+  display: none;
+}
 .main_products .categories button{
   font-size: 1.5rem;
   margin: 20px ;
@@ -941,6 +944,7 @@ list-style-type: decimal;
   border-radius: 50px;
   margin-left: 20px;
   margin-top: 10px;
+  cursor: pointer;
 }
 .part3 .about_text button a, .part2 .about_text button a{
   color: white;
@@ -1170,4 +1174,78 @@ list-style-type: decimal;
 .about_img img{
   margin-top: 20px;
 }
+
+.product_page{
+  top: 100px;
+}
+
+
+.main_products{
+  position: relative;
+
+}
+
+
+.main_products .categories{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  width: 50%;
+  background: var(--dbb);
+  
+}
+.main_products .grid_display{
+  position: absolute;
+  top: 45px;
+}
+
+.main_products .categories button, .main_products .categories ._550px{
+  border-radius: 5px;
+  width: 90%;
+  margin-top: 10px;
+  transform: scale(1 );
+
+
+}
+.main_products .categories button{
+  display: none;
+  margin: 5px;
+  padding: 5px;
+}
+ .main_products .categories .category_btn.show-category-button{
+  display: block;
+ }
+.main_products .categories ._550px{
+  z-index: 1;
+
+}
+.main_products .categories ._550px{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+}
+ 
+.main_products .categories ._550px div #menu1_icon, .main_products .categories ._550px div #remove1_icon{
+  font-size: 1.5rem;
+  background: tranparent;
+  color: white;
+  
+}
+.main_products .categories ._550px div #remove1_icon{
+  display: none;
+}
+
+.main_products .categories ._550px div #menu1_icon.remove-icon-menu{
+  display: none;
+}
+.main_products .categories ._550px div #remove1_icon.add-remove-icon{
+  display: flex;
+  justify-content: flex-end;
+}
+
+ 
 }
