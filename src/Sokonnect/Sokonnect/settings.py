@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l)w0uis!=1up@$i33xl!!g1dtgnuexr#5#cj$&(!oxslo^qcz7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
                  '127.0.0.1',]
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'Sokonnect.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sokonnect',
+        'USER': 'root',
+        'PASSWORD': 'king347.',
+        'HOST': '127.0.0.1',  
+        'PORT': '3306'
     }
 }
 
@@ -120,6 +124,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Ensure this is the right path to your static directory
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

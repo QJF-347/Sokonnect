@@ -9,13 +9,10 @@
       </div>
     </div>
     <div class="navigation">
-      <a href="#" class="navs">Home</a>
-      <a href="about.html" class="navs">About Us</a>
-      <a href="products.html" class="navs">Products</a>
-      <a href="services.html" class="navs">Services</a>
-      <a href="#contact" class="navs">Contacts</a>
-      <a href="login.html" class="navs" id="login_button">Login</a>
-    </div>
+      <a href="{% url 'home' %}" class="navs">Home</a>
+      <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
+  </div>
+  
 
     <div class="icons">
       <a href="#" class="icon" id="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>

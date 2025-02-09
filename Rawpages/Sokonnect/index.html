@@ -1,11 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
 
-{% extends "main.html" %}
-
-{% block content %}
-  
-{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://kit.fontawesome.com/4d99246f7d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
 
 <body>
+  <header class="header">
+    <div class="logo">
+      <div class="logo_image">
+        <img src="/images/soko.jpg" alt="This is the logo for the enterprise" />
+      </div>
+      <div class="logo_name">
+        <p>SoKonnect</p>
+        <p>Enterprises</p>
+      </div>
+    </div>
+    <div class="navigation">
+      <a href="#" class="navs">Home</a>
+      <a href="about.html" class="navs">About Us</a>
+      <a href="products.html" class="navs">Products</a>
+      <a href="services.html" class="navs">Services</a>
+      <a href="#contact" class="navs">Contacts</a>
+      <a href="login.html" class="navs" id="login_button">Login</a>
+    </div>
+
+    <div class="icons">
+      <a href="#" class="icon" id="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" class="icon" id="cart_icon"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+      <a href="#" class="icon" id="menu_icon"><i class="fa-solid fa-bars"></i></a>
+    </div>
+    <!--this is the search bar-->
+    <div class="search_container" id="search_container">
+      <input type="search" placeholder="Search here..." class="searchbar" id="searchbar1" />
+      <label for="searchbar1" class="fa-solid fa-magnifying-glass"></label>
+    </div>
+  </header>
 
   <main>
     <!--The home page starts here-->
@@ -369,7 +407,7 @@
 
     <!--The home page ends here-->
   </main>
-  <script src="{% static 'index.js' %}"></script>
-
+  <script src="index.js"></script>
 </body>
-{% endblock content %}
+
+</html>
