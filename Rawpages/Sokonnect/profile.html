@@ -43,7 +43,7 @@
         <a href="#" class="icon" id="menu_icon"
           ><i class="fa-solid fa-bars"></i
         ></a>
-        <a href="#" class="icon" id="profile_icon"
+        <a href="profile.html" class="icon" id="profile_icon"
           ><i class="fa-solid fa-user"></i
         ></a>
       </div>
@@ -81,7 +81,171 @@
       </div>
     </header>
 
-    <main></main>
+    <main class="profile_main">
+      <div class="profile_image">
+        <div>
+          <img src="/images/fruit1.jpg" alt="" />
+        </div>
+        <div class="profile_verification">
+          <p>Verified? <a href="#"><i class="fa-solid fa-check"></i></a></p>
+          <p>3.5  <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><span>     100 reviews</span></p>
+          <p>User Id: ade3tndwki9</p>
+        </div>
+      </div>
+
+      <div class="personal_info">
+        <form action="#">
+          <div class="profile_input_box">
+            <div>
+              <label class="personal_det">Personal Details</label>
+            </div>
+          </div>
+          <div class="profile_input_box">
+            <div>
+              <label for="profile_fname">First Name </label>
+              <input type="text" id="profile_fname" value="Denis" readonly />
+            </div>
+
+            <div>
+              <label for="profile_lname">Last Name </label>
+              <input type="text" id="profile_lname" value="Mugambi" readonly />
+            </div>
+          </div>
+          <div class="profile_input_box">
+            <div>
+              <label for="profile_phone">Mobile(Personal)</label>
+              <input
+                type="tel"
+                id="profile_phone"
+                value="0703-226-483"
+                readonly
+              />
+            </div>
+            <div>
+              <label for="profile_email">Email </label>
+              <input
+                type="email"
+                id="profile_email"
+                value="denismugambi350@gmail.com"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="profile_input_box">
+            <div>
+              <label for="businnes_phone"
+                >Business Mobile (Visible To Customers)</label
+              >
+              <input
+                type="tel"
+                id="businnes_phone"
+                value="0123-456-789"
+                readonly
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="ratings">
+        <div class="rating_stars">
+          <h1>Ratings</h1>
+          <p><span>3.5    </span><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><span>      100 reviews</span></p>
+        </div>
+
+        <div class="orders_completed">
+          <div>
+            <h2>Orders Completed</h2>
+            <p>1,233</p>
+          </div>
+          <div>
+            <h2>Orders to Deliver</h2>
+            <p>10</p>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review_title">
+          <h1>Reviews</h1>
+        </div>
+        <div class="reviews">
+          <div class="review_cont">
+            <div class="reviewer_img">
+              <img src="/images/carrots1.jpg" alt="">
+            </div>
+            <div class="reviewer_info">
+              <p class="p_desc">Felix Denis</p>
+              <p class="p_desc">Buyer</p>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat reprehenderit, rerum nesciunt amet corrupti dolores in aperiam pariatur sapiente accusamus vero assumenda modi! Incidunt saepe ab, eius obcaecati nam ut.</p>
+            </div>
+          </div>
+          <div class="review_cont">
+            <div class="reviewer_img">
+              <img src="/images/carrots1.jpg" alt="">
+            </div>
+            <div class="reviewer_info">
+              <p class="p_desc">Charles Mbutu</p>
+              <p class="p_desc">Seller</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id quas fugit vitae sint sit ab, quasi non, culpa mollitia odio, dignissimos atque rerum distinctio corporis magnam. Quos perferendis non aperiam!</p>
+            </div>
+          </div>
+        </div>
+        <div class="reviews">
+          <div class="review_cont">
+            <div class="reviewer_img">
+              <img src="/images/carrots1.jpg" alt="">
+            </div>
+            <div class="reviewer_info">
+              <p class="p_desc">Jesse Gitahi</p>
+              <p class="p_desc">Buyer</p>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat reprehenderit, rerum nesciunt amet corrupti dolores in aperiam pariatur sapiente accusamus vero assumenda modi! Incidunt saepe ab, eius obcaecati nam ut.</p>
+            </div>
+          </div>
+          <div class="review_cont">
+            <div class="reviewer_img">
+              <img src="/images/carrots1.jpg" alt="">
+            </div>
+            <div class="reviewer_info">
+              <p class="p_desc">Denis Mugambi</p>
+              <p class="p_desc">Seller</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id quas fugit vitae sint sit ab, quasi non, culpa mollitia odio, dignissimos atque rerum distinctio corporis magnam. Quos perferendis non aperiam!</p>
+            </div>
+          </div>
+        </div>
+        <div class="review_more">
+          <button>See All</button>
+        </div>
+      </div>
+      <div class="rate">
+        <div class="rate_title">
+          <h1>Rate</h1>
+        </div>
+        <div class="rate_cont">
+          <div class="rate_name">
+            <label for="ratename">Name</label>
+            <input type="text" id="ratename" name="rate-name" required>
+          </div>
+          <div class="buysel">
+            <div>
+              <h3>Who are you?</h3>
+            </div>
+            <div>
+              <button class="buyer1"  onclick="buse2()"><p>Buyer</p></button>
+              <button class="seller1" onclick="buse3()"><p>Seller</p></button>
+            </div>
+          </div>
+          <div class="rate_message">
+            <label for="ratemessage">Message</label>
+            <textarea rows="10" cols="70" placeholder="Describe the buyer/seller here ....">
+  
+            </textarea>
+          </div>
+          <div class="rate_btn">
+            <button tyep="submit">Rate</button>
+          </div>
+        </div>
+        
+      </div>
+    </main>
 
     <script src="index.js"></script>
   </body>

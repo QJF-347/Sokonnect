@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="checkout_body">
+    <div class="checkout_container">
+        <div class="checkout_h1">
+            <h1>SoKonnect Checkout</h1>
+        </div>
+        <div class="checkout_form">
+            <form action="#">
+                <div>
+                    <label for="checkout_name">Name(first ID name) </label>
+                    <input type="text" id="checkout_name" required name="checkout_name">
+                </div>
+                
+                <div>
+                    <label for="checkout_id">ID No.</label>
+                    <input type="text" id="checkout_id" required>
+                </div>
+                <div>
+                    <label for="checkout_amount">Amount </label>
+                    <input type="text" id="checkout_amount" required>
+
+                </div>
+                <div>
+                    <label>Source of Funds?</label>
+                </div>
+                <div>
+                    <div>
+                        <input type="radio" id="mobile_num" name="fund_source" required>
+                        <label for="mobile_num">Mobile Number.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="bank_account" name="fund_source">
+                        <label for="bank_account">Bank Account.</label>
+                    </div>
+                </div>
+                <div id="phone_number_input">
+                    <label for="checkout_phone">Mobile No.</label>
+                    <input type="text" id="checkout_phone" > 
+                </div>
+                <div id="bank_account_input">
+                    <label for="checkout_bank">Bank Account</label>
+                    <input type="text" id="checkout_bank" >
+                </div>
+            </form>
+        </div>
+        <div class="checkout_btn">
+            <button>Checkout</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
