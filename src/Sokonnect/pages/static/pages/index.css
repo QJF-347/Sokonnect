@@ -402,18 +402,20 @@ main{
   margin: 10px;
   cursor: pointer;
 }
-.wrapper .buyerseller button a{
+.wrapper .buyerseller button p{
   color: white;
+  font-size: 1.3rem;
 }
 .wrapper .buyerseller button.show-border{
   border: 1px solid white;
+  box-shadow: 2px 2px 10px white;
 }
 .wrapper .buyerseller button:hover{
   background:hsl(23, 63%, 50%)
 }
-.wrapper .buyerseller button:active{
+/* .wrapper .buyerseller button:active{
   border: 1px solid white;
-}
+} */
  
 
 
@@ -870,6 +872,8 @@ main{
  background: var(--brightb);
 }
 
+/* This is the about page styling  */
+
 .about_main{
   position: relative;
   top: 160px; 
@@ -953,6 +957,305 @@ list-style-type: decimal;
 .part3 .about_text button{
   width: 150px;
 }
+
+/* this is the profile page styling  */
+
+.profile_main{
+  position: relative;
+  top: 100px;
+
+}
+.profile_main .profile_image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;  
+  margin: auto;
+  
+}
+.profile_main .profile_image div img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.profile_image .profile_verification{
+  color: var(--brightb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile_image .profile_verification p:nth-child(1){
+  font-size: 1.3rem;
+}
+.profile_image .profile_verification p{
+  margin-bottom: 5px;
+}
+.profile_image .profile_verification p a{
+  background: green;
+  border-radius: 5px;
+  color: white;
+  width: 8px;
+  padding: 0 2px;
+
+
+}
+.personal_info, .ratings, .review, .rate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.personal_info form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  
+}
+.personal_info form .profile_input_box{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  
+}
+.profile_input_box div label{
+  display: block;
+  color: var(--brightb);
+  font-size: 1.3rem;
+  margin: 20px 20px 20px 10px;
+}
+
+.profile_input_box div input{
+  width: 400px;
+  height: 50px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  padding: 10px;
+  background:hsla(23, 63%, 20%, 0.212);
+  color: white;
+}
+.profile_input_box div .personal_det{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 0;
+  text-decoration: underline;
+}
+
+.ratings{
+  margin: auto;
+  width: 900px;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: flex-start;
+  color: chocolate;
+}
+.ratings .rating_stars h1{
+  text-decoration: underline;
+}
+.ratings .rating_stars p{
+  color: white;
+  font-size: 1.3rem;
+  margin: 10px;
+}
+.ratings .orders_completed{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+}
+.ratings .orders_completed div h2{
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+.ratings .orders_completed div p{
+  font-size: 1.5rem;
+  color: white;
+  margin: 7px;
+}
+.review{
+  margin: auto;
+  width: 900px;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: flex-start;
+  color: chocolate;
+}
+.review .review_title{
+  text-decoration: underline;
+}
+.review .reviews{
+  display: flex;
+}
+.review .review_cont{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+}
+.review .reviewer_img{
+  width: 400px;
+  height: 120px;
+  margin-right: 10px
+}
+.review .reviewer_img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  
+}
+.reviewer_info p{
+  line-height: 20px;
+  margin-left: 10px;
+}
+.reviewer_info .p_desc{
+  font-size: 1.3rem;
+  font-weight: 500px;
+  margin-bottom: 3px;
+  margin-left: 0;
+}
+.review_more button{
+  background:hsl(23, 63%, 20%);
+  color: var(--brightb);
+  font-size: 1.4rem;
+  width: 200px;
+  padding: 10px;
+  border-radius: 35px;  
+  cursor: pointer;
+  margin: 15px;
+  margin-left: 45px;
+}
+.review_more button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.review_more button:active{
+  background:hsl(23, 63%, 35%);
+}
+.rate{
+  margin: auto;
+  width: 900px;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: flex-start;
+  color: chocolate;
+}
+.rate .rate_title{
+  text-decoration: underline;
+}
+.rate .rate_cont{
+  margin-top: 15px;
+}
+.rate_cont .rate_name label{
+  display: block;
+  font-size: 1.4rem;
+  margin: 5px;
+  font-weight: bold;
+
+}
+.rate_cont .rate_name input{
+  width: 500px;
+  height: 30px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  padding: 20px;
+  background:hsla(23, 63%, 20%, 0.212);
+  color: white;
+  border-radius: 5px;
+}
+.rate_cont .buysel div h3{
+  font-size: 1.5rem;
+}
+.rate_cont .buysel div button{
+  background:hsl(23, 63%, 20%);
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+  font-size: 1.4rem;
+  margin: 10px;
+  cursor: pointer;
+}
+ 
+.rate_cont .buysel div button.show-border{
+  border: 1px solid white;
+  box-shadow: 2px 2px 10px white;
+}
+.rate_cont .buysel div button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.rate_cont .buysel div button:active{
+  background:hsl(23, 63%, 35%)
+}
+.rate_cont .rate_message label{
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500px;
+  
+}
+.rate_cont .rate_message textarea{
+  padding: 20px;
+  color: white;
+  background:hsla(23, 63%, 20%, 0.212);
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  
+}
+.rate_cont .rate_btn button{
+  background:hsl(23, 63%, 20%);
+  color: white;
+  border-radius: 20px;
+  width: 500px;
+  padding: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+.rate_cont .rate_btn button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.rate_cont .rate_btn button:active{
+  background:hsl(23, 63%, 35%);
+}
+
+
+/* This is the checkout page styling */
+
+.checkout_body{
+  background: url(/images/carrots1.jpg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.checkout_container{
+  
+  width: 1200px;
+  height: 900px;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  color: var(--brightb);
+}
+.checkout_h1 h1{
+  color: var(--brightb);
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 
 
 
