@@ -45,6 +45,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
+
+
 //Adding the profile page link to the navigation in screen max-width: 500px
 
 const mediaQuery = window.matchMedia("(max-width:550px)");
@@ -87,54 +89,34 @@ handleMediaQueryChange(mediaQuery);
 mediaQuery.addEventListener("change", handleMediaQueryChange);
 
 //This is for adding item to cart
-const addToCartButton = document.querySelectorAll(".add-to-cart");
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const cartList = document.querySelector(".cart-items ul");
 const itemCostSpan = document.getElementById("item_cost");
 const taxSpan = document.getElementById("tax");
 const shippingCostSpan = document.getElementById("shipping_cost");
 const totalCostSpan = document.getElementById("total_cost");
 
-// Function to format text with consistent spacing
 function formatCartItem(quantity, productName, productPrice, amount) {
-  const quantityWidth = 5;
-  const nameWidth = 20;
-  const priceWidth = 10;
-  const amountWidth = 10;
-
-  const formattedQuantity = quantity.toString().padEnd(quantityWidth);
-  const formattedName = productName.padEnd(nameWidth);
-  const formattedPrice = productPrice.padEnd(priceWidth);
-  const formattedAmount = amount.padEnd(amountWidth);
-
-  return `${formattedQuantity} ${formattedName} ${formattedPrice} ${formattedAmount}`;
+  return `${quantity.toString().padEnd(5)} ${productName.padEnd(20)} ${productPrice.padEnd(10)} ${amount.padEnd(10)}`;
 }
 
-// Add table header
 const header = document.createElement("li");
-header.textContent = formatCartItem(
-  "Qty",
-  "Product Name",
-  "Price($)",
-  "Amount($)"
-);
+header.textContent = formatCartItem("Qty", "Product Name", "Price($)", "Amount($)");
 cartList.appendChild(header);
 
 function updateTotals() {
   let itemTotal = 0;
-  const cartItems = Array.from(cartList.children).slice(1); // Skip the header
+  const cartItems = Array.from(cartList.children).slice(1);
 
-  cartItems.forEach((item) => {
-    const parts = item.textContent.match(
-      /^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/
-    );
+  cartItems.forEach(item => {
+    const parts = item.textContent.match(/^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/);
     if (parts) {
-      itemTotal += parseFloat(parts[4]); // Add the amount to the total
+      itemTotal += parseFloat(parts[4]);
     }
   });
 
-  const tax = itemTotal * 0.002; // 0.2% tax
-  const shipping = 35; // Constant shipping
-
+  const tax = itemTotal * 0.002;
+  const shipping = 35;
   const total = itemTotal + tax + shipping;
 
   itemCostSpan.textContent = `$${itemTotal.toFixed(2)}`;
@@ -143,54 +125,64 @@ function updateTotals() {
   totalCostSpan.textContent = `$${total.toFixed(2)}`;
 }
 
-addToCartButton.forEach((button) => {
+addToCartButtons.forEach(button => {
   button.addEventListener("click", () => {
     const productDiv = button.closest(".product_page");
     const productName = productDiv.dataset.name;
     const productPrice = productDiv.dataset.price;
 
-    const existingItem = Array.from(cartList.children).find((item) => {
-      const parts = item.textContent.match(
-        /^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/
-      );
+    const existingItem = Array.from(cartList.children).find(item => {
+      const parts = item.textContent.match(/^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/);
       return parts && parts[2].trim() === productName;
     });
 
+    let item;
+
     if (existingItem) {
-      const parts = existingItem.textContent.match(
-        /^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/
-      );
+      const parts = existingItem.textContent.match(/^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/);
       if (parts) {
         let quantity = parseInt(parts[1]);
         quantity++;
         const amount = (quantity * parseFloat(productPrice)).toFixed(2);
-        existingItem.textContent = formatCartItem(
-          quantity,
-          productName,
-          productPrice,
-          amount
-        );
+        existingItem.textContent = formatCartItem(quantity, productName, productPrice, amount);
+        item = existingItem;
       } else {
         console.error("Cart item format is invalid:", existingItem.textContent);
         cartList.removeChild(existingItem);
+        return;
       }
     } else {
       const amount = (1 * parseFloat(productPrice)).toFixed(2);
-      const newItem = document.createElement("li");
-      newItem.textContent = formatCartItem(
-        1,
-        productName,
-        productPrice,
-        amount
-      );
-      cartList.appendChild(newItem);
+      item = document.createElement("li");
+      item.textContent = formatCartItem(1, productName, productPrice, amount);
+      cartList.appendChild(item);
     }
 
-    updateTotals(); // Update totals after adding/updating items
+    const removeIcon = document.createElement("i");
+    removeIcon.classList.add("fas", "fa-times", "remove-item");
+    item.appendChild(removeIcon);
+
+    removeIcon.addEventListener("click", () => {
+      const parts = item.textContent.match(/^(\d+)\s+(.+)\s+([\d\.]+)\s+([\d\.]+)/);
+      if (parts) {
+        let quantity = parseInt(parts[1]);
+        if (quantity > 1) {
+          quantity--;
+          const amount = (quantity * parseFloat(productPrice)).toFixed(2);
+          item.textContent = formatCartItem(quantity, productName, productPrice, amount);
+          item.appendChild(removeIcon);
+          updateTotals();
+        } else {
+          cartList.removeChild(item);
+          updateTotals();
+        }
+      }
+    });
+
+    updateTotals();
   });
 });
 
-// Initial calculation in case there are already items in the cart (e.g., after a page refresh)
 updateTotals();
 
 //The product category part in the product page
@@ -245,3 +237,48 @@ function buse1() {
   seller.classList.toggle("show-border");
   buyer.classList.remove("show-border");
 }
+
+//checkout control
+
+const checkoutDiv = document.querySelector(".checkout_div");
+const placeorder = document.querySelector("#checkout");
+const prod_div = document.querySelector(".full_prod_description");
+const prod_image = document.querySelectorAll(".prod_image img");
+const remove3 = document.querySelector(".close");
+const remove4 = document.querySelector(".products_desc .close");
+
+placeorder.addEventListener("click", ()=>{
+  checkoutDiv.classList.toggle("show-checkout");
+  
+});
+
+
+prod_image.forEach(button=>{
+  button.addEventListener("click", ()=>{
+    prod_div.classList.toggle("show-prod-desc");
+  });
+});
+
+remove3.addEventListener("click", ()=>{
+  checkoutDiv.classList.remove("show-checkout");
+  
+});
+remove4.addEventListener("click", ()=>{
+  prod_div.classList.remove("show-prod-desc");
+});
+
+const mobile_num = document.getElementById("mobile_num");
+const bank_account = document.getElementById("bank_account");
+const phone_number_input = document.getElementById("phone_number_input");
+const bank_account_input = document.getElementById("bank_account_input");
+
+function checkradio(){
+  if(mobile_num.checked){
+    bank_account_input.classList.add("hide-bank-input");
+    phone_number_input.classList.remove("hide-phone-input");
+  }else if(bank_account.checked){
+    phone_number_input.classList.add("hide-phone-input");
+    bank_account_input.classList.remove("hide-bank-input");
+  }
+}
+ 

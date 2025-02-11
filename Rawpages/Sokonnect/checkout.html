@@ -6,7 +6,7 @@
     <title>Checkout</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<body class="checkout_body">
+<div class="checkout_div">
     <div class="checkout_container">
         <div class="checkout_h1">
             <h1>SoKonnect Checkout</h1>
@@ -28,9 +28,9 @@
 
                 </div>
                 <div>
-                    <label>Source of Funds?</label>
+                    <label class="funds">Source of Funds?</label>
                 </div>
-                <div>
+                <div class="funds_source">
                     <div>
                         <input type="radio" id="mobile_num" name="fund_source" required>
                         <label for="mobile_num">Mobile Number.</label>
@@ -55,5 +55,5 @@
         </div>
     </div>
     <script src="index.js"></script>
-</body>
+</div>
 </html>

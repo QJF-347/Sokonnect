@@ -135,7 +135,7 @@ body {
 /*styling for the cart_container*/
 
 .cart_container{
-  width: 700px;
+  width: 800px;
   height: 860px;
   position: absolute;
   right: 0;
@@ -166,7 +166,7 @@ body {
   background:hsl(23, 63%, 20%);
   color: white;
   margin: 5px;
-  width: 600px;
+  width: 700px;
   height: 40px;
   font-size: 1.3rem;
   padding: 5px;
@@ -724,12 +724,15 @@ main{
 }
 
 /* Product page styling */
+.main_products{
+  position: relative;
+}
 
 .main_products .categories{
   display: flex;
   flex-direction: row;
   position: relative;
-  top: 100px;
+  top: 120px;
   justify-content: center;
 
 }
@@ -785,6 +788,8 @@ main{
   height: 100%;
   transition: transform .5s;
   object-fit: cover;
+  z-index: 4;
+  cursor: pointer;
   
 }
 .product_page .prod_image img:hover{
@@ -1230,16 +1235,22 @@ list-style-type: decimal;
 
 /* This is the checkout page styling */
 
-.checkout_body{
-  background: url(/images/carrots1.jpg) no-repeat;
-  background-size: cover;
+.checkout_div{
+  background: rgba(0,0,0,0.7);
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  transform: scale(0);
 
-
+}
+.checkout_div.show-checkout{
+  transform: scale(1);
 }
 .checkout_container{
   
@@ -1249,12 +1260,180 @@ list-style-type: decimal;
   backdrop-filter: blur(50px);
   color: var(--brightb);
 }
+.close{
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-size: 2rem;
+  font-weight: 500px;
+  cursor: pointer;
+}
 .checkout_h1 h1{
   color: var(--brightb);
   text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
 }
+.checkout_form form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 40px;
+
+}
+.checkout_form form div label{
+  display: block;
+  margin: 5px;
+  margin-left: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+}
+.checkout_form form div .funds{
+  font-size: 1.7rem;
+  text-decoration: underline;
+}
+.checkout_form form div input{
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.3rem;
+  background:hsla(23, 63%, 20%, 0.512);
+  color: white;
+}
+.checkout_form form .funds_source{
+  display: flex;
+  gap: 0px;
+  
+
+}
+.checkout_form form .funds_source div label{
+  display: inline;
+  margin-left: 0px;
+}
+.checkout_form form .funds_source div input{
+  padding: 5px;
+  margin: 3px;
+  font-size: 1rem;
+  width: 50px;
+  height: 20px;
+
+}
+
+.checkout_btn button{
+  width: 300px;
+  padding: 15px;
+  font-size: 1.5rem;
+  background:hsl(23, 63%, 20%);
+  margin: 40px;
+  color: white;
+  border-radius: 30px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  
+}
+.checkout_btn button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.checkout_btn button:active{
+  background:hsl(23, 63%, 35%);
+}
+
+
+
+#phone_number_input.hide-phone-input{
+  display: none;
+}
+#bank_account_input.hide-bank-input{
+  display: none;
+}
+
+/* This is the full product description styling  */
+
+.full_prod_description{
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 5;
+  overflow: scroll;
+  transform: scale(0);
+}
+.full_prod_description.show-prod-desc{
+  transform: scale(1);
+}
+
+
+.products_desc{
+  width: 1000px;
+  height: 100vh;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  color: var(--brightb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  position: fixed;
+}
+.products_desc .close{
+  align-self: flex-end;
+  margin-top: 10px;
+  z-index: 10;
+
+}
+.products_desc .prod_image{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.prod_image img{
+  width: 95%;
+  height: 100%;
+}
+.products_desc .product_desc{
+  font-size: 1.1rem;
+  margin: 10px;
+}
+.products_desc .seller_info {
+  width: 90%;
+  height: 40px;
+  margin: 20px;
+}
+.products_desc .seller_info button{
+  width: 100%;
+  height: 100%;
+  color: white;
+  background:hsl(23, 63%, 20%);
+  border-radius: 15px;
+}
+.products_desc .seller_info button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.products_desc .seller_info button:active{
+  background:hsl(23, 63%, 35%);
+}
+.products_desc .product_btns{
+  width: 60%;
+  height: 40px;
+  margin: 20px;
+}
+.products_desc .product_btns button{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+
+}
+
 
 
 
