@@ -281,4 +281,17 @@ function checkradio(){
     bank_account_input.classList.remove("hide-bank-input");
   }
 }
- 
+
+//this is the control for the add products link
+
+
+function addProductfunc(){
+  const addProductPage = document.getElementById("add_product");
+  const close3 = document.querySelector(".product_infor .close");
+  addProductPage.classList.toggle("show-add-product");
+
+  close3.addEventListener("click", ()=>{
+    addProductPage.classList.remove("show-add-product");
+  })
+
+}

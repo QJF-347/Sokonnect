@@ -44,6 +44,7 @@
         <a href="#contact" class="navs a_links">Contacts</a>
         <a href="login.html" class="navs a_links" id="login_button">Login</a>
         <a href="signup.html" class="navs a_links">Signup</a>
+        <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
       </div>
 
       <div class="icons">
@@ -95,7 +96,42 @@
     </header>
 
     <main>
-      <!--The home page starts here-->
+     <!-- adding the product part -->
+      <div class="add_product" id="add_product">
+        <div class="product_infor">
+          <div class="close">&times;</div>
+          <div>
+            <h1>About Your Product</h1>
+          </div>
+          <div>
+            <label for="product_nm">Product name</label>
+            <input type="text" id="product_nm" required>
+          </div>
+          <div>
+            <label for="product_prc">Price</label>
+            <input type="text" id="product_prc" required>
+          </div>
+          <div>
+            <label for="product-qty">Quantity</label>
+            <input type="text" id="product-qty" required>
+          </div>
+          <div>
+            <label>Product Description</label>
+            <textarea required cols="60" rows="7" placeholder="Give a detailed description of your product here...."></textarea>
+          </div>
+          <div>
+            <label for="product_img">Product Image</label>
+            <input type="file" id="product_img" required >
+
+          </div>
+          <div>
+            <button type="submit">Add</button>
+          </div>
+
+        </div>
+      </div>
+
+       <!--The home page starts here-->
 
       <div class="home">
         <div class="grid_item elements">

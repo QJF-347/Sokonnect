@@ -1434,6 +1434,166 @@ list-style-type: decimal;
 
 }
 
+/* This is styling for the verificaton page */
+
+.verification_cont{
+  
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.verification_cont .verification{
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  background:hsla(23, 63%, 20%, 0.212);
+  height: 90vh;
+  border-radius: 5px;
+  color: var(--brightb);
+}
+.verification .verify_h1{
+  color: var(--brightb);
+  font-size: 1.7rem;
+  text-decoration: underline;
+  margin: 20px;
+  text-align: center;
+}
+.verification div{
+  margin-left: 50px;
+}
+.verification div label{
+  display: block;
+  line-height: 57px;
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+.verification div input{
+  width: 500px;
+  height: 35px;
+  background:hsl(23, 63%, 20%);
+  padding: 4px 10px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.verification div #button{
+  width: 700px;
+  height: 40px;
+  background:hsl(23, 63%, 20%);
+  border-radius: 30px;
+  margin: 25px;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+}
+.verification div #button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.verification div #button:active{
+  background:hsl(23, 63%, 35%);
+}
+.verification .upload_id_photo{
+  display: flex;
+
+}
+.verification .upload_id_photo div input{
+  width: 350px;
+}
+
+/* This styling is for adding a product */
+
+.add_product{
+  position: fixed;
+  top: 100px;
+  height: 100vh;
+  width: 100%;
+  z-index: 9990;
+  background:hsla(0, 0%, 0%, 0.712);
+  display: none;
+  
+}
+.add_product.show-add-product{
+  display: flex;
+  justify-content: center;
+}
+.product_infor .close{
+  align-self: flex-end;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.add_product .product_infor{
+  position: relative; 
+  top: 30px;
+  height: 85vh;
+  width: 900px;
+  backdrop-filter: blur(20px);
+  color: var(--brightb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  
+}
+.add_product .product_infor div{
+  margin-left: 20px;  
+}
+.add_product .product_infor div h1{
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px;
+  text-decoration: underline;
+  margin-top: 0;
+
+}
+.add_product .product_infor div label{
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: underline;
+  display: block;
+  line-height: 60px;
+}
+.add_product .product_infor div input{
+  height: 45px;
+  width: 700px;
+  background:hsla(23, 63%, 20%, 0.904);
+  border-radius: 5px;
+  padding: 12px 10px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.add_product .product_infor div textarea{
+  width: 700px;
+  padding: 10px;
+  border-radius: 5px;
+  background: hsla(23, 63%, 20%, 0.904);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.add_product .product_infor div button{
+  width: 700px;
+  font-size: 1.4rem;
+  color: white;
+  padding: 5px;
+  border-radius: 30px;
+  margin: 30px;
+  background:hsl(23, 63%, 20%);
+  cursor: pointer;
+}
+.add_product .product_infor div button:hover{
+  background:hsl(23, 63%, 27%);
+}
+.add_product .product_infor div button:active{
+  background:hsl(23, 63%, 35%);
+}
+
+
 
 
 
