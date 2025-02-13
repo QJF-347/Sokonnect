@@ -227,7 +227,7 @@ main{
   justify-content: center;
   transform: scale(1);
   transition: .1s;
-  background: url(/images/homeback.avif) no-repeat;
+  background: url(../images/homeback.avif) no-repeat;
   background-size: cover;
   overflow: hidden;
   background-position: center;
