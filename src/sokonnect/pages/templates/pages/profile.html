@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/4d99246f7d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <div class="logo_image">
+          <img src="{% static 'images/soko.jpg' %}" alt="This is the logo for the enterprise" />
+        </div>
+        <div class="logo_name">
+          <p>SoKonnect</p>
+          <p>Enterprises</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <a href="{% url 'home' %}" class="navs">Home</a>
+        <a href="{% url 'about' %}" class="navs">About Us</a>
+        <a href="{% url 'products' %}" class="navs">Products</a>
+        <a href="{% url 'home' %}#contact" class="navs">Contacts</a>
+        <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
+        <a href="{% url 'register' %}" class="navs">Signup</a>
+        <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
+      </div>
+
+      <div class="icons">
+        <a href="#" class="icon" id="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="icon" id="cart_icon"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+        <a href="#" class="icon" id="menu_icon"><i class="fa-solid fa-bars"></i></a>
+        <a href="{% url 'profile' %}" class="icon" id="profile_icon"><i class="fa-solid fa-user"></i></a>
+      </div>
+      <!-- Search bar -->
+      <div class="search_container" id="search_container">
+        <input type="search" placeholder="Search here..." class="searchbar" id="searchbar1" />
+        <label for="searchbar1" class="fa-solid fa-magnifying-glass"></label>
+      </div>
+      <!-- Cart container -->
+      <div class="cart_container" id="cart_container">
+        <div class="heading">
+          <h2>Cart</h2>
+        </div>
+        <div class="cart-items">
+          <pre>
+            <ul class="item_list"></ul>
+          </pre>
+        </div>
+        <pre>
+          <div class="total">
+            <p>Items    : <span id="item_cost">KSh 0.00</span></p>
+            <p>Tax      : <span id="tax">KSh 0.00</span></p>
+            <p>Shipping : <span id="shipping_cost">KSh 0.00</span></p><br>
+            <p>Total    : <span id="total_cost">KSh 0.00</span></p>
+            <button id="checkout">Place Order</button>
+          </div>
+        </pre>
+      </div>
+    </header>
+
+    <main class="profile_main">
+      <!-- Add product section -->
+      <div class="add_product" id="add_product">
+        <div class="product_infor">
+          <div class="close">&times;</div>
+          <div>
+            <h1>About Your Product</h1>
+          </div>
+          <div>
+            <label for="product_nm">Product name</label>
+            <input type="text" id="product_nm" required>
+          </div>
+          <div>
+            <label for="product_prc">Price</label>
+            <input type="text" id="product_prc" required>
+          </div>
+          <div>
+            <label for="product-qty">Quantity</label>
+            <input type="text" id="product-qty" required>
+          </div>
+          <div>
+            <label>Product Description</label>
+            <textarea required cols="60" rows="7" placeholder="Give a detailed description of your product here...."></textarea>
+          </div>
+          <div>
+            <label for="product_img">Product Image</label>
+            <input type="file" id="product_img" required>
+          </div>
+          <div>
+            <button type="submit">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile image and verification -->
+      <div class="profile_image">
+        <div>
+          <img src="{% static 'images/fruit1.jpg' %}" alt="Profile Image" />
+        </div>
+        <div class="profile_verification">
+          <p>Verified? <a href="#"><i class="fa-solid fa-check"></i></a></p>
+          <p>3.5  <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><span>     100 reviews</span></p>
+          <p>User Id: {{ user.user_id }}</p>
+        </div>
+      </div>
+
+      <!-- Personal information form -->
+      <div class="personal_info">
+        <form action="#" method="post">
+          {% csrf_token %}
+          <div class="profile_input_box">
+            <div>
+              <label class="personal_det">Personal Details</label>
+            </div>
+          </div>
+          <div class="profile_input_box">
+            <div>
+              <label for="profile_fname">First Name </label>
+              <input type="text" id="profile_fname" value="{{ user.first_name }}" readonly />
+            </div>
+            <div>
+              <label for="profile_lname">Last Name </label>
+              <input type="text" id="profile_lname" value="{{ user.last_name }}" readonly />
+            </div>
+          </div>
+          <div class="profile_input_box">
+            <div>
+              <label for="profile_phone">Mobile (Personal)</label>
+              <input type="tel" id="profile_phone" value="{{ user.phone }}" readonly />
+            </div>
+            <div>
+              <label for="profile_email">Email </label>
+              <input type="email" id="profile_email" value="{{ user.email }}" readonly />
+            </div>
+          </div>
+          <div class="profile_input_box">
+            <div>
+              <label for="businnes_phone">Business Mobile (Visible To Customers)</label>
+              <input type="tel" id="businnes_phone" value="{{ user.business_phone }}" readonly />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Ratings and orders -->
+      <div class="ratings">
+        <div class="rating_stars">
+          <h1>Ratings</h1>
+          <p><span>{{ user.rating }}</span><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><span>     {{ user.review_count }} reviews</span></p>
+        </div>
+        <div class="orders_completed">
+          <div>
+            <h2>Orders Completed</h2>
+            <p>{{ user.orders_completed }}</p>
+          </div>
+          <div>
+            <h2>Orders to Deliver</h2>
+            <p>{{ user.orders_pending }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews -->
+      <div class="review">
+        <div class="review_title">
+          <h1>Reviews</h1>
+        </div>
+        {% for review in reviews %}
+          {% if forloop.counter0|divisibleby:2 %}
+            <div class="reviews">
+            {% endif %}
+              <div class="review_cont">
+                <div class="reviewer_img">
+                  <img src="{% static review.image %}" alt="{{ review.reviewer_name }}" />
+                </div>
+                <div class="reviewer_info">
+                  <p class="p_desc">{{ review.reviewer_name }}</p>
+                  <p class="p_desc">{{ review.role }}</p>
+                  <p>{{ review.message }}</p>
+                </div>
+              </div>
+            {% if forloop.counter|divisibleby:2 or forloop.last %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        <div class="review_more">
+          <button>See All</button>
+        </div>
+      </div>
+
+      <!-- Rate section -->
+      <div class="rate">
+        <div class="rate_title">
+          <h1>Rate</h1>
+        </div>
+        <div class="rate_cont">
+          <form action="#" method="post">
+            {% csrf_token %}
+            <div class="rate_name">
+              <label for="ratename">Name</label>
+              <input type="text" id="ratename" name="rate-name" required>
+            </div>
+            <div class="buysel">
+              <div>
+                <h3>Who are you?</h3>
+              </div>
+              <div>
+                <button class="buyer1" onclick="buse2()"><p>Buyer</p></button>
+                <button class="seller1" onclick="buse3()"><p>Seller</p></button>
+              </div>
+            </div>
+            <div class="rate_message">
+              <label for="ratemessage">Message</label>
+              <textarea rows="10" cols="70" placeholder="Describe the buyer/seller here ...." name="rate-message"></textarea>
+            </div>
+            <div class="rate_btn">
+              <button type="submit">Rate</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>

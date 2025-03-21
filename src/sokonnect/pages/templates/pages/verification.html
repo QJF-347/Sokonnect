@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="verification_cont">
+        <div class="verification">
+            <div class="verify_h1">
+                <h2>Complete Registration</h2>
+            </div>
+            <form action="{% url 'verification' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <label for="full_id_name">Full ID Name</label>
+                    <input id="full_id_name" type="text" name="full_id_name" required>
+                </div>
+                <div>
+                    <label for="id_no">ID No.</label>
+                    <input type="text" id="id_no" name="id_no" required>
+                </div>
+                <div>
+                    <label for="verify_mobile">Mobile No.</label>
+                    <input type="text" id="verify_mobile" name="verify_mobile" required>
+                </div>
+                <div>
+                    <label for="verify_business_mobile">Business Mobile No.</label>
+                    <input type="text" id="verify_business_mobile" name="verify_business_mobile" required>
+                </div>
+                <div>
+                    <label for="image">Your Photo</label>
+                    <input type="file" id="image" name="image" required>
+                </div>
+                <div>
+                    <label for="id_photo">Upload ID Photo</label>
+                </div>
+                <div class="upload_id_photo">
+                    <div>
+                        <label for="id_front">ID Front</label>
+                        <input type="file" id="id_front" name="id_front" required>
+                    </div>
+                    <div>
+                        <label for="id_back">ID Back</label>
+                        <input type="file" id="id_back" name="id_back" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="government">Government Supporting Document</label>
+                    <input type="file" id="government" name="government" required>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" id="button">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

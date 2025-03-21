@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/4d99246f7d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header starts here-->
+
+    <header class="header">
+      <div class="logo">
+        <div class="logo_image">
+          <img
+            src="{% static 'images/soko.jpg' %}"
+            alt="This is the logo for the enterprise"
+          />
+        </div>
+        <div class="logo_name">
+          <p>SoKonnect</p>
+          <p>Enterprises</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <a href="{% url 'home' %}" class="navs">Home</a>
+        <a href="{% url 'about' %}" class="navs">About Us</a>
+        <a href="{% url 'products' %}" class="navs">Products</a>
+        <a href="{% url 'home' %}#contact" class="navs">Contacts</a>
+        <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
+        <a href="{% url 'register' %}" class="navs">Signup</a>
+      </div>
+
+      <div class="icons">
+        <a href="#" class="icon" id="search_icon"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+        <a href="#" class="icon" id="cart_icon"
+          ><i class="fa-sharp fa-solid fa-cart-shopping"></i
+        ></a>
+        <a href="#" class="icon" id="menu_icon"
+          ><i class="fa-solid fa-bars"></i
+        ></a>
+        <a href="{% url 'profile' %}" class="icon" id="profile_icon"
+          ><i class="fa-solid fa-user"></i
+        ></a>
+      </div>
+      <!--this is the search bar-->
+      <div class="search_container" id="search_container">
+        <input
+          type="search"
+          placeholder="Search here..."
+          class="searchbar"
+          id="searchbar1"
+        />
+        <label for="searchbar1" class="fa-solid fa-magnifying-glass"></label>
+      </div>
+      <!--THis is where the cart file starts-->
+      <div class="cart_container" id="cart_container">
+        <div class="heading">
+          <h2>Cart</h2>
+        </div>
+        <div class="cart-items">
+          <pre>
+            <ul class="item_list">
+              
+            </ul>
+          </pre>
+        </div>
+        <pre>
+      <div class="total">
+        <p>Items    : <span id="item_cost">KSh 0.00</span></p>
+        <p>Tax      : <span id="tax">KSh 0.00</span></p>
+        <p>Shipping : <span id="shipping_cost">KSh 0.00</span></p><br>
+        <p>Total    : <span id="total_cost">KSh 0.00</span></p>
+        <button id="checkout">Place Order</button>
+      </div>
+      </pre>
+      </div>
+    </header>
+
+    <!--Header ends here-->
+
+    <!--The login/register form starts here-->
+
+    <div class="wrapper" id="wrapper">
+      <div class="wrapper1" id="wrapper1">
+        <a href="{% url 'home' %}"
+          ><div class="remove" id="remove2">
+            <i class="fa-solid fa-xmark"></i></div
+        ></a>
+        <div class="form_box login">
+          <h2>LogIn</h2>
+          <hr />
+          <!-- Display error messages -->
+          {% if messages %}
+            <div class="messages">
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="input_box">
+              <span><i class="fa-solid fa-user"></i></span>  <!-- Change icon to user -->
+              <input type="text" id="username" name="username" required />  <!-- Change input to username -->
+              <label for="username">Username</label>  <!-- Change label to username -->
+            </div>
+            <div class="input_box">
+              <span><i class="fa-solid fa-lock"></i></span>
+              <input type="password" id="password" name="password" required />
+              <label for="password">Password</label>
+            </div>
+          
+            <div class="login_btn">
+              <button type="submit">Login</button>
+            </div>
+            <div class="register-login">
+              <p>
+                Don't have an account?
+                <a href="{% url 'register' %}" id="register_link">Register!</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--The login/register form ends here-->
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script
+      src="https://kit.fontawesome.com/4d99246f7d.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+          <div class="logo_image">
+            <img
+              src="{% static 'images/soko.jpg' %}"
+              alt="This is the logo for the enterprise"
+            />
+          </div>
+          <div class="logo_name">
+            <p>SoKonnect</p>
+            <p>Enterprises</p>
+          </div>
+        </div>
+        <div class="navigation">
+          <a href="{% url 'home' %}" class="navs">Home</a>
+          <a href="{% url 'about' %}" class="navs">About Us</a>
+          <a href="{% url 'products' %}" class="navs">Products</a>
+          <a href="{% url 'home' %}#contact" class="navs">Contacts</a>
+          <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
+          <a href="{% url 'register' %}" class="navs">Signup</a>
+        </div>
+  
+        <div class="icons">
+          <a href="#" class="icon" id="search_icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></a>
+          <a href="#" class="icon" id="cart_icon"
+            ><i class="fa-sharp fa-solid fa-cart-shopping"></i
+          ></a>
+          <a href="#" class="icon" id="menu_icon"
+            ><i class="fa-solid fa-bars"></i
+          ></a>
+          <a href="{% url 'profile' %}" class="icon" id="profile_icon"
+            ><i class="fa-solid fa-user"></i
+          ></a>
+        </div>
+        <!--this is the search bar-->
+        <div class="search_container" id="search_container">
+          <input
+            type="search"
+            placeholder="Search here..."
+            class="searchbar"
+            id="searchbar1"
+          />
+          <label for="searchbar1" class="fa-solid fa-magnifying-glass"></label>
+        </div>
+        <!--THis is where the cart file starts-->
+        <div class="cart_container" id="cart_container">
+          <div class="heading">
+            <h2>Cart</h2>
+          </div>
+          <div class="cart-items">
+            <pre>
+              <ul class="item_list">
+                
+              </ul>
+            </pre>
+          </div>
+          <pre>
+        <div class="total">
+          <p>Items    : <span id="item_cost">KSh 0.00</span></p>
+          <p>Tax      : <span id="tax">KSh 0.00</span></p>
+          <p>Shipping : <span id="shipping_cost">KSh 0.00</span></p><br>
+          <p>Total    : <span id="total_cost">KSh 0.00</span></p>
+          <button id="checkout">Place Order</button>
+        </div>
+        </pre>
+        </div>
+      </header>
+
+      <main class="about_main">
+        <div class="part1">
+          <div class="about_text">
+            <h1>SoKonnect: The Best Place to Buy and Sell Anything.</h1>
+            <p>Looking to buy or sell? Sokonnect is the premier free online marketplace.  Our secure platform connects real people, making it easy and convenient to find just what you're looking for.</p>
+
+            <h3>Content</h3>
+            <a href="#sell"><h2>How to sell on SoKonnect?</h2></a>
+            <a href="#buy"><h2>How to buy on SoKonnect?</h2></a>
+          </div>
+          <div class="about_img">
+            <img src="{% static 'images/about_part1.jpg' %}" alt="">
+          </div>
+
+        </div>
+        <div class="part1 part2" id="sell">
+          <div class="about_img">
+            <img src="{% static 'images/about_part2.webp' %}" alt="">
+          </div>
+          <div class="about_text">
+            <h2>How to Sell on Sokonnect</h2>
+  <ol>
+    <li><strong>Register:</strong><p>Register using your e-mail. Make sure you’re entering a correct e-mail, so your clients could reach you!</p> </li>
+    <li><strong>Make photos of your item:</strong> <p>Feel free to make a lot of photos using your smartphone. Make sure they show your item in the best light.</p></li>
+    <li><strong>Press SELL:</strong><p>Choose a proper category, upload your photos and write a clear title and full description of your item. Enter a fair price, select attributes and send your advert to review!</p> </li>
+    <li><strong>Answer the messages and calls from your clients:</strong><p> If everything is ok with your advert, it’ll be on Sokonnect in a couple of hours after sending to moderation. We’ll send you a letter and notification when your advert goes live. Check your messages and be ready to earn money! Do you want to sell like a pro? Check out our Premium Services.</p></li>
+  </ol>
+
+  <button><a href="#" class="sell-button">Sell Now</a></button>
+          </div>
+
+        </div>
+        <div class="part1 part3" id="buy">
+          <div class="about_text">
+            <h2>How to Buy on Sokonnect</h2>
+  <ol>
+    <li><strong>Search for the item:</strong> <p>Find what you need using the search panel and filters. We have over a million adverts, choose exactly what you are looking for.</p></li>
+    <li><strong>Contact a seller:</strong> <p>You may use e-mail to contact them or call them via phone. Discuss all the details, negotiate about the price.</p></li>
+    <li><strong>Take your item or order a delivery:</strong> <p>We check our sellers carefully, but it’s always better to check twice, right? Meet a seller in a public place and be sure to pay only after collecting your item.</p></li>
+    <li><strong>Leave your feedback about the seller:</strong> <p>Feel free to tell us about your purchase. Your feedback will be published online on the seller’s page and will be very helpful for other buyers. Let’s build a safe and professional business community together!</p></li>
+  </ol>
+  <button><a href="{% url 'products' %}" class="go-shopping-button">Go Shopping</a></button>
+          </div>
+          <div class="about_img">
+            <img src="{% static 'images/part3.avif' %}" alt="">
+          </div>
+
+        </div>
+      </main>
+
+      <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

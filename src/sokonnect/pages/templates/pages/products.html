@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/4d99246f7d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header starts here-->
+    <header class="header">
+      <div class="logo">
+        <div class="logo_image">
+          <img
+            src="{% static 'images/soko.jpg' %}"
+            alt="This is the logo for the enterprise"
+          />
+        </div>
+        <div class="logo_name">
+          <p>SoKonnect</p>
+          <p>Enterprises</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <a href="{% url 'home' %}" class="navs">Home</a>
+        <a href="{% url 'about' %}" class="navs">About Us</a>
+        <a href="{% url 'products' %}" class="navs">Products</a>
+        <a href="{% url 'home' %}#contact" class="navs">Contacts</a>
+        <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
+        <a href="{% url 'register' %}" class="navs">Signup</a>
+        <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
+      </div>
+
+      <div class="icons">
+        <a href="#" class="icon" id="search_icon"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+        <a href="#" class="icon" id="cart_icon"
+          ><i class="fa-sharp fa-solid fa-cart-shopping"></i
+        ></a>
+        <a href="#" class="icon" id="menu_icon"
+          ><i class="fa-solid fa-bars"></i
+        ></a>
+        <a href="{% url 'profile' %}" class="icon" id="profile_icon"
+          ><i class="fa-solid fa-user"></i
+        ></a>
+      </div>
+      <!--this is the search bar-->
+      <div class="search_container" id="search_container">
+        <input
+          type="search"
+          placeholder="Search here..."
+          class="searchbar"
+          id="searchbar1"
+        />
+        <label for="searchbar1" class="fa-solid fa-magnifying-glass"></label>
+      </div>
+      <!--THis is where the cart file starts-->
+      <div class="checkout_div">
+        <div class="checkout_container">
+          <div class="close">&times;</div>
+          <div class="checkout_h1">
+            <h1>SoKonnect Checkout</h1>
+          </div>
+          <div class="checkout_form">
+            <form action="#">
+              <div>
+                <label for="checkout_name">Name(first ID name) </label>
+                <input
+                  type="text"
+                  id="checkout_name"
+                  required
+                  name="checkout_name"
+                />
+              </div>
+
+              <div>
+                <label for="checkout_id">ID No.</label>
+                <input type="text" id="checkout_id" required />
+              </div>
+              <div>
+                <label for="checkout_amount">Amount </label>
+                <input type="text" id="checkout_amount" required readonly/>
+              </div>
+              <div>
+                <label class="funds">Source of Funds?</label>
+              </div>
+              <div class="funds_source">
+                <div>
+                  <input
+                    type="radio"
+                    id="mobile_num"
+                    name="fund_source"
+                    required
+                    onclick="checkradio()"
+                    checked
+                  />
+                  <label for="mobile_num">Mobile Number.</label>
+                </div>
+                <div>
+                  <input type="radio" id="bank_account" name="fund_source" onclick="checkradio()"/>
+                  <label for="bank_account">Bank Account.</label>
+                </div>
+              </div>
+              <div id="phone_number_input">
+                <label for="checkout_phone">Mobile No.</label>
+                <input type="text" id="checkout_phone" />
+              </div>
+              <div id="bank_account_input">
+                <label for="checkout_bank">Bank Account</label>
+                <input type="text" id="checkout_bank" />
+              </div>
+            </form>
+          </div>
+          <div class="checkout_btn">
+            <button>Checkout</button>
+          </div>
+        </div>
+      </div>
+      <div class="cart_container" id="cart_container">
+        <div class="heading">
+          <h2>Cart</h2>
+        </div>
+        <div class="cart-items">
+          <pre>
+            <ul class="item_list">
+              
+            </ul>
+          </pre>
+        </div>
+        <pre>
+      <div class="total">
+        <p>Items    : <span id="item_cost">KSh 0.00</span></p>
+        <p>Tax      : <span id="tax">KSh 0.00</span></p>
+        <p>Shipping : <span id="shipping_cost">KSh 0.00</span></p><br>
+        <p>Total    : <span id="total_cost">KSh 0.00</span></p>
+        <button id="checkout">Place Order</button>
+      </div>
+      </pre>
+      </div>
+    </header>
+
+    <!--Header ends here-->
+    <main class="main_products">
+       <!-- adding the product part -->
+       <div class="add_product" id="add_product">
+        <div class="product_infor">
+          <div class="close">&times;</div>
+          <div>
+            <h1>About Your Product</h1>
+          </div>
+          <div>
+            <label for="product_nm">Product name</label>
+            <input type="text" id="product_nm" required>
+          </div>
+          <div>
+            <label for="product_prc">Price</label>
+            <input type="text" id="product_prc" required>
+          </div>
+          <div>
+            <label for="product-qty">Quantity</label>
+            <input type="text" id="product-qty" required>
+          </div>
+          <div>
+            <label>Product Description</label>
+            <textarea required cols="60" rows="7" placeholder="Give a detailed description of your product here...."></textarea>
+          </div>
+          <div>
+            <label for="product_img">Product Image</label>
+            <input type="file" id="product_img" required >
+          </div>
+          <div>
+            <button type="submit">Add</button>
+          </div>
+        </div>
+      </div>
+      <!-- Categories section -->
+<div class="categories">
+  <div class="_550px">
+      <div>
+          <a href="#" id="menu1_icon"><i class="fa-solid fa-bars"></i></a>
+      </div>
+      <div>
+          <a href="#" id="remove1_icon"><i class="fa-solid fa-xmark"></i></a>
+      </div>
+  </div>
+  <button class="category_btn" onclick="filterProducts('')">All</button>
+  {% for category in categories %}
+  <button class="category_btn" onclick="filterProducts('{{ category.name }}')">{{ category.name }}</button>
+  {% endfor %}
+</div>
+
+<!-- Products grid -->
+<div class="grid_display">
+  {% for product in products %}
+  <div class="product_page" data-name="{{ product.name }}" data-price="{{ product.price }}">
+      <div class="prod_image">
+          <img src="{% static product.image %}" alt="{{ product.name }}" />
+      </div>
+      <div class="prod_desc">
+          <p class="product_name">{{ product.name }}</p>
+          <p class="product_price">KSh {{ product.price }}</p>
+      </div>
+      <!-- Full product description -->
+      <div class="full_prod_description">
+          <div class="products_desc">
+              <div class="close"><p>&times;</p></div>
+              <div class="prod_image">
+                  <img src="{% static product.image %}" alt="{{ product.name }}" />
+              </div>
+              <div class="prod_desc">
+                  <p class="product_name">{{ product.name }}</p>
+                  <p class="product_price">KSh {{ product.price }}</p>
+                  <p class="product_desc">{{ product.description }}</p>
+              </div>
+              <div class="seller_info">
+                  <button>Seller Info</button>
+              </div>
+              <div class="product_btns">
+                  <button class="add-to-cart">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <!-- End of full product description -->
+      <div class="product_btns">
+          <button class="add-to-cart">Add to Cart</button>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+    </main>
+    <script>
+      function filterProducts(category) {
+          let url = "{% url 'products' %}";
+          if (category) {
+              url += `?category=KSh{category}`;
+          }
+          window.location.href = url;
+      }
+  </script>
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
