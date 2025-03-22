@@ -33,8 +33,11 @@
         <a href="{% url 'home' %}#contact" class="navs">Contacts</a>
         <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
         <a href="{% url 'register' %}" class="navs">Signup</a>
-        <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
-      </div>
+        {% if user.role == "seller" %}
+          <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
+      
+        {% endif %}
+        </div>
 
       <div class="icons">
         <a href="#" class="icon" id="search_icon"
@@ -154,95 +157,97 @@
           <div>
             <h1>About Your Product</h1>
           </div>
-          <div>
-            <label for="product_nm">Product name</label>
-            <input type="text" id="product_nm" required>
-          </div>
-          <div>
-            <label for="product_prc">Price</label>
-            <input type="text" id="product_prc" required>
-          </div>
-          <div>
-            <label for="product-qty">Quantity</label>
-            <input type="text" id="product-qty" required>
-          </div>
-          <div>
-            <label>Product Description</label>
-            <textarea required cols="60" rows="7" placeholder="Give a detailed description of your product here...."></textarea>
-          </div>
-          <div>
-            <label for="product_img">Product Image</label>
-            <input type="file" id="product_img" required >
-          </div>
-          <div>
-            <button type="submit">Add</button>
-          </div>
+          <form method="post" enctype="multipart/form-data" style="overflow: auto;" action="{% url 'add_product'%}">
+            {% csrf_token %}
+            <div>
+              <label for="product_nm">Product name</label>
+              <input type="text" id="product_nm" name="name" required>
+            </div>
+            <div>
+              <label for="product_prc">Price</label>
+              <input type="text" id="product_prc" name="price" required>
+            </div>
+            <div>
+              <label for="product-qty">Quantity</label>
+              <input type="text" id="product-qty" name="quantity" required>
+            </div>
+            <div>
+              <label>Product Description</label>
+              <textarea name="description" required cols="60" rows="7" placeholder="Give a detailed description of your product here...."></textarea>
+            </div>
+            <div>
+              <label for="product_img">Product Image</label>
+              <input type="file" id="product_img" name="image" required>
+            </div>
+            <div>
+              <label for="product_category">Category</label>
+              <select id="product_category" name="category" required>
+                <option value="">Select a category</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div>
+              <button type="submit">Add</button>
+            </div>
+          </form>
         </div>
       </div>
-      <!-- Categories section -->
-<div class="categories">
-  <div class="_550px">
-      <div>
-          <a href="#" id="menu1_icon"><i class="fa-solid fa-bars"></i></a>
-      </div>
-      <div>
-          <a href="#" id="remove1_icon"><i class="fa-solid fa-xmark"></i></a>
-      </div>
-  </div>
-  <button class="category_btn" onclick="filterProducts('')">All</button>
-  {% for category in categories %}
-  <button class="category_btn" onclick="filterProducts('{{ category.name }}')">{{ category.name }}</button>
-  {% endfor %}
-</div>
+      <div class="categories">
+        <div class="_550px">
+            <div>
+                <a href="#" id="menu1_icon"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <div>
+                <a href="#" id="remove1_icon"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+        </div>
+        <button class="category_btn" onclick="filterProducts('')">All</button>
+        {% for category in categories %}
+        <button class="category_btn" onclick="filterProducts('{{ category.name }}')">{{ category.name }}</button>
+        {% endfor %}
+    </div>
 
-<!-- Products grid -->
-<div class="grid_display">
-  {% for product in products %}
-  <div class="product_page" data-name="{{ product.name }}" data-price="{{ product.price }}">
-      <div class="prod_image">
-          <img src="{% static product.image %}" alt="{{ product.name }}" />
-      </div>
-      <div class="prod_desc">
-          <p class="product_name">{{ product.name }}</p>
-          <p class="product_price">KSh {{ product.price }}</p>
-      </div>
-      <!-- Full product description -->
-      <div class="full_prod_description">
-          <div class="products_desc">
-              <div class="close"><p>&times;</p></div>
-              <div class="prod_image">
-                  <img src="{% static product.image %}" alt="{{ product.name }}" />
-              </div>
-              <div class="prod_desc">
-                  <p class="product_name">{{ product.name }}</p>
-                  <p class="product_price">KSh {{ product.price }}</p>
-                  <p class="product_desc">{{ product.description }}</p>
-              </div>
-              <div class="seller_info">
-                  <button>Seller Info</button>
-              </div>
-              <div class="product_btns">
-                  <button class="add-to-cart">Add to Cart</button>
+      <div class="grid_display">
+        <!-- Example product (replace with dynamic data) -->
+        {% for product in products %}
+        <div class="product_page" data-name="{{ product.name }}" data-price="{{ product.price }}">
+          <div class="prod_image">
+              <img src="{% static product.image %}" alt="{{ product.name }}" />
+          </div>
+          <div class="prod_desc">
+              <p class="product_name">{{ product.name }}</p>
+              <p class="product_price">KSh {{ product.price }}</p>
+          </div>
+          <!-- Full product description -->
+          <div class="full_prod_description">
+              <div class="products_desc">
+                  <div class="close"><p>&times;</p></div>
+                  <div class="prod_image">
+                      <img src="{% static product.image %}" alt="{{ product.name }}" />
+                  </div>
+                  <div class="prod_desc">
+                      <p class="product_name">{{ product.name }}</p>
+                      <p class="product_price">KSh {{ product.price }}</p>
+                      <p class="product_desc">{{ product.description }}</p>
+                  </div>
+                  <!-- <div class="seller_info">
+                      <button>Seller Info</button> -->
+                  <!-- </div> -->
+                  <div class="product_btns">
+                      <button class="add-to-cart">Add to Cart</button>
+                  </div>
               </div>
           </div>
+          <!-- End of full product description -->
+          <div class="product_btns">
+              <button class="add-to-cart">Add to Cart</button>
+          </div>
       </div>
-      <!-- End of full product description -->
-      <div class="product_btns">
-          <button class="add-to-cart">Add to Cart</button>
+        {% endfor %}
       </div>
-  </div>
-  {% endfor %}
-</div>
     </main>
-    <script>
-      function filterProducts(category) {
-          let url = "{% url 'products' %}";
-          if (category) {
-              url += `?category=KSh{category}`;
-          }
-          window.location.href = url;
-      }
-  </script>
     <script src="{% static 'js/index.js' %}"></script>
   </body>
 </html>

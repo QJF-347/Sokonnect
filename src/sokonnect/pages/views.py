@@ -4,7 +4,7 @@ from .forms import RegistrationForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from products.models import Product, MostPopular, Category
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def about(request):
@@ -52,6 +52,7 @@ def login_view(request):
 def about(request):
     return render(request, 'pages/about.html')
 
+@login_required
 def products(request):
     # Get the selected category from the query parameters
     category_name = request.GET.get('category')
@@ -68,6 +69,7 @@ def products(request):
     context = {
         "products": products,
         "categories": categories,
+        "user":request.user
     }
     return render(request, "pages/products.html", context)
 
@@ -184,3 +186,4 @@ def home(request):
         "most_popular": most_popular,
     }
     return render(request, "pages/home.html", context)
+
