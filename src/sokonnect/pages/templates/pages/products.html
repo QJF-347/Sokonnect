@@ -33,10 +33,8 @@
         <a href="{% url 'home' %}#contact" class="navs">Contacts</a>
         <a href="{% url 'login' %}" class="navs" id="login_button">Login</a>
         <a href="{% url 'register' %}" class="navs">Signup</a>
-        {% if user.role == "seller" %}
-          <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
-      
-        {% endif %}
+        <a href="#" onclick="addProductfunc()" class="navs a_links">Add Product</a>
+    
         </div>
 
       <div class="icons">
@@ -138,10 +136,10 @@
         </div>
         <pre>
       <div class="total">
-        <p>Items    : <span id="item_cost">KSh 0.00</span></p>
-        <p>Tax      : <span id="tax">KSh 0.00</span></p>
-        <p>Shipping : <span id="shipping_cost">KSh 0.00</span></p><br>
-        <p>Total    : <span id="total_cost">KSh 0.00</span></p>
+        <p>Items    : <span id="item_cost">$ 0.00</span></p>
+        <p>Tax      : <span id="tax">$ 0.00</span></p>
+        <p>Shipping : <span id="shipping_cost">$ 0.00</span></p><br>
+        <p>Total    : <span id="total_cost">$ 0.00</span></p>
         <button id="checkout">Place Order</button>
       </div>
       </pre>
@@ -218,7 +216,7 @@
           </div>
           <div class="prod_desc">
               <p class="product_name">{{ product.name }}</p>
-              <p class="product_price">KSh {{ product.price }}</p>
+              <p class="product_price">$ {{ product.price }}</p>
           </div>
           <!-- Full product description -->
           <div class="full_prod_description">
@@ -229,7 +227,7 @@
                   </div>
                   <div class="prod_desc">
                       <p class="product_name">{{ product.name }}</p>
-                      <p class="product_price">KSh {{ product.price }}</p>
+                      <p class="product_price">$ {{ product.price }}</p>
                       <p class="product_desc">{{ product.description }}</p>
                   </div>
                   <!-- <div class="seller_info">

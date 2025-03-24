@@ -344,3 +344,17 @@ function addProductfunc() {
 }
 
 formData.append("category", document.getElementById("product_category").value);
+
+// Function to filter products by category
+function filterProducts(categoryName) {
+  // Construct the URL with the selected category as a query parameter
+  const url = new URL(window.location.href);
+  if (categoryName) {
+    url.searchParams.set('category', categoryName);
+  } else {
+    url.searchParams.delete('category'); // Remove the category parameter if "All" is selected
+  }
+
+  // Reload the page with the updated URL
+  window.location.href = url.toString();
+}

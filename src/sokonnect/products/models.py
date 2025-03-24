@@ -1,6 +1,7 @@
 from django.db import models
 from pages.models import User  
 
+# cateroy model 
 class Category(models.Model):
     name = models.CharField(max_length=255, verbose_name="Category Name")
     description = models.TextField(blank=True, null=True, verbose_name="Category Description")
@@ -15,7 +16,7 @@ class Category(models.Model):
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
-
+# products model
 class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name="Product Name")
     description = models.TextField(blank=True, null=True, verbose_name="Product Description")

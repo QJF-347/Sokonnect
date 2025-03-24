@@ -53,7 +53,7 @@ def about(request):
     return render(request, 'pages/about.html')
 
 @login_required
-def products(request):
+def products(request): 
     # Get the selected category from the query parameters
     category_name = request.GET.get('category')
     
@@ -69,7 +69,7 @@ def products(request):
     context = {
         "products": products,
         "categories": categories,
-        "user":request.user
+        
     }
     return render(request, "pages/products.html", context)
 

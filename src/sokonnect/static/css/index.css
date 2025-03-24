@@ -227,7 +227,7 @@ main{
   justify-content: center;
   transform: scale(1);
   transition: .1s;
-  background: url(/src/sokonnect/static/images/homeback.avif) no-repeat;
+  background: url(/src/sokonnect/static/images/homeback.jpeg) no-repeat;
   background-size: cover;
   overflow: hidden;
   background-position: center;
@@ -429,7 +429,7 @@ main{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  background: url(/src/sokonnect/static/images/homeback.avif) no-repeat;
+  background: url(/src/sokonnect/static/images/homeback.jpeg) no-repeat;
   background-size: cover;
   overflow: hidden;
   background-position: center;
